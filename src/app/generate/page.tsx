@@ -50,6 +50,7 @@ const Generate = () => {
     };
 
     const generatePDF = async () => {
+        console.log(data)
         const pdf = new jsPDF({
             orientation: 'portrait',
             unit: 'mm',
@@ -83,11 +84,12 @@ const Generate = () => {
                 itemDiv.style.top = `${Math.floor(index / 2) * itemHeight}mm`;
                 itemDiv.style.boxSizing = 'border-box';
                 itemDiv.style.padding = '10px';
-                itemDiv.style.border = '1px solid red';
+                itemDiv.style.border = '1px solid black'
+               
     
                 itemDiv.innerHTML = `
-                    <div style="text-align: center;">
-                        <div style="font-size: 24px; margin-bottom: 5px;">${item.number}</div>
+                    <div style="text-align: center;display:flex; flex-direction:column; padding: 0px 30px 0px 30px">
+                        <div style="font-size: 24px; margin-bottom: 5px; align-self:end;">${item.number}</div>
                         <div style="
                             width: ${circleSize}px;
                             height: ${circleSize}px;
@@ -97,11 +99,11 @@ const Generate = () => {
                             align-items: center;
                             justify-content: center;
                             margin: 5px auto;
-                            border:2px solid red;
+                            background-color: ${item.color};
                         ">
-                            <span style="color: ${item.color}; font-size: 36px;">${item.charecter}</span>
+                            <span style="color: ${'#ffffff'}; font-size: 56px;">${item.charecter}</span>
                         </div>
-                        <div style="margin-top: 5px; font-size: 14px;">${item.name}</div>
+                        <div style="margin-top: 20px; font-size: 20px; font-weight:600">${item.name}</div>
                     </div>
                 `;
     
