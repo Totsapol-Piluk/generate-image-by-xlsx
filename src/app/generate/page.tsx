@@ -86,6 +86,7 @@ const Generate = () => {
                 itemDiv.style.padding = '10px';
                 itemDiv.style.border = '1px solid black'
                 const shape = item.shape.toLocaleLowerCase().slice(0, -1)
+                console.log(shape , shape.length)
             
                 
 
@@ -132,27 +133,166 @@ const Generate = () => {
                 }
                 if(shape === 'triangle'){
                     itemDiv.innerHTML = `
+                   <div style="text-align: center; display: flex; flex-direction: column; padding: 0px 30px;">
+    <div style="font-size: 20px;font-weight:600; margin-bottom: 5px; align-self: end;">${item.number}</div>
+    <div style="
+        width: 0;
+        height: 0;
+        border-left: ${circleSize / 2}px solid transparent;
+        border-right: ${circleSize / 2}px solid transparent;
+        border-bottom: ${circleSize}px solid ${item.color};
+        position: relative;
+        margin: 5px auto;
+    ">
+        <span style="
+            color: #ffffff;
+            font-size: 46px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 70px); /* ปรับให้ตัวอักษรอยู่กึ่งกลางจริงๆ */
+        ">${item.charecter}</span>
+    </div>
+    <div style="margin-top: 20px; font-size: 20px; font-weight: 600;">${item.name}</div>
+</div>
+                    `;
+                }
+                if(shape === 'heart'){
+                    itemDiv.innerHTML = `
+                        <div style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: space-around; padding: 0px 30px;">
+                            <div style="font-size: 24px; margin-bottom: 5px; align-self: end;">${item.number}</div>
+                            <div id="heart"></div>
+                            <div style="margin-top: 20px; font-size: 20px; font-weight: 600;">${item.name}</div>
+                        </div>
+                    `
+                }
+                if(shape === 'star'){
+                    itemDiv.innerHTML = `
+                    <div style="text-align: center;display:flex; flex-direction:column; padding: 0px 30px 0px 30px">
+                        <div style="font-size: 24px; margin-bottom: 5px; align-self:end;">${item.number}</div>
+                        <div id="star"></div>
+                        <div style="margin-top: 20px; font-size: 20px; font-weight:600">${item.name}</div>
+                    </div>
+                `;
+                }
+                if(shape === 'daimond'){
+                    itemDiv.innerHTML = `
                     <div style="text-align: center;display:flex; flex-direction:column; padding: 0px 30px 0px 30px">
                         <div style="font-size: 24px; margin-bottom: 5px; align-self:end;">${item.number}</div>
                         <div style="
-                                width: 0;
-                                height: 0;
-                                border-left: ${circleSize / 2}px solid transparent;
-                                border-right: ${circleSize / 2}px solid transparent;
-                                border-bottom: ${circleSize}px solid ${item.color};
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                margin: 5px auto;
-                                position: relative;
-                            ">
-                            <span style="color: ${'#ffffff'}; font-size: 36px; position: absolute; top: 100%; left: 50%; transform: translate(-50%, -50%);">${item.charecter}</span>
+                            width: ${circleSize}px;
+                            height: ${circleSize}px;
+                            border: 2px solid ${item.color};
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin: 5px auto;
+                            background-color: ${item.color};
+                            transform: rotate(45deg);
+
+                        ">
+                            <span style="color: ${'#ffffff'}; font-size: 56px; transform: rotate(-45deg);">${item.charecter}</span>
                         </div>
                         <div style="margin-top: 20px; font-size: 20px; font-weight:600">${item.name}</div>
                     </div>
-
-                    `;
+                `;
                 }
+                if(shape === 'pentago'){
+                    itemDiv.innerHTML = `
+                    <div style="text-align: center;display:flex; flex-direction:column; padding: 0px 30px 0px 30px">
+                        <div style="font-size: 24px; margin-bottom: 5px; align-self:end;">${item.number}</div>
+                        <div id="pentagon"></div>
+                        <div style="margin-top: 20px; font-size: 20px; font-weight:600">${item.name}</div>
+                    </div>
+                `;
+                }
+                
+                if(shape === 'hexago'){
+                    itemDiv.innerHTML = `
+                    <div style="text-align: center;display:flex; flex-direction:column; padding: 0px 30px 0px 30px;">
+                        <div style="font-size: 24px; margin-bottom: 5px; align-self:end;">${item.number}</div>
+                        <svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="50,5 95,37.5 77,95 23,95 5,37.5" fill="green"  />
+                        </svg>
+                        <div style="margin-top: 20px; font-size: 20px; font-weight:600">${item.name}</div>
+                    </div>
+                `;
+                }
+                if(shape === 'pentago'){
+                    itemDiv.innerHTML = `
+                    <div style="text-align: center;display:flex; flex-direction:column; padding: 0px 30px 0px 30px;">
+                        <div style="font-size: 24px; margin-bottom: 5px; align-self:end;">${item.number}</div>
+                        <svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <polygon points="25,5 75,5 95,50 75,95 25,95 5,50" fill=${item.color}  />
+                        </svg>
+                        <div style="margin-top: 20px; font-size: 20px; font-weight:600">${item.name}</div>
+                    </div>
+                `;
+                }
+                if(shape === 'cros'){
+                    itemDiv.innerHTML = `
+        <div style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: space-around; padding: 0px 30px;">
+            <div style="font-size: 24px; margin-bottom: 5px; align-self: end;">${item.number}</div>
+           <svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cross shape -->
+  <path d="M75 25 h25 v25 h25 v25 h-25 v25 h-25 v-25 h-25 v-25 h25 z" fill="lime" />
+</svg>
+
+
+            <div style="margin-top: 20px; font-size: 20px; font-weight: 600;">${item.name}</div>
+        </div>
+    `;
+                }
+                if(shape === 'teardro'){
+                    itemDiv.innerHTML = `
+        <div style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: space-around; padding: 0px 30px;">
+            <div style="font-size: 24px; margin-bottom: 5px; align-self: end;">${item.number}</div>
+            <svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+  
+  <!-- Teardrop shape -->
+  <path d="M300 25 q75 0 75 75 a75 75 0 1 1 -150 0 q0 -75 75 -75 z" fill="lime" />
+</svg>
+            <div style="margin-top: 20px; font-size: 20px; font-weight: 600;">${item.name}</div>
+        </div>
+    `;
+                }
+                if(shape === 'shea'){
+                  
+                    itemDiv.innerHTML = `
+                    <div style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: space-around; padding: 0px 30px;">
+                        <div style="font-size: 24px; margin-bottom: 5px; align-self: end;">${item.number}</div>
+                        <svg width="300" height="150" viewBox="0 0 150 100" xmlns="http://www.w3.org/2000/svg">
+                            <polygon points="20,90 110,90 130,10 40,10" fill="${item.color}" />
+                        </svg>
+                        <div style="margin-top: 20px; font-size: 20px; font-weight: 600;">${item.name}</div>
+                    </div>
+                `;
+                    
+                    
+                }
+                if(shape === 'wav'){
+                    
+                        itemDiv.innerHTML = `
+                            <div style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: space-around; padding: 0px 30px;">
+                                <div style="font-size: 24px; margin-bottom: 5px; align-self: end;">${item.number}</div>
+                                <svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10,10 
+                                             Q30,30 60,10 
+                                             T100,10 
+                                             L100,90 
+                                             Q70,70 40,90 
+                                             T10,90 
+                                             Z" 
+                                          fill="${item.color}" />
+                                </svg>
+                                <div style="margin-top: 20px; font-size: 20px; font-weight: 600;">${item.name}</div>
+                            </div>
+                        `;
+                    
+                    
+                }
+               
+                
                
                 container.appendChild(itemDiv);
             });
