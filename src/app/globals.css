@@ -1,3 +1,38 @@
+.center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.myButton {
+	box-shadow: 0px 10px 14px -7px #276873;
+	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+	background-color:#599bb3;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:13px 32px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+	background-color:#408c99;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+        
+
 #heart { 
     position: relative; 
     width: 120px; 
@@ -87,4 +122,59 @@
     -moz-transform: rotate(-30deg);
     -o-transform: rotate(-30deg);
     transform: rotate(-30deg);
+  }
+
+  .custom_input {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 100%;
+  }
+  
+  .input_file {
+    font-size: 18px;
+    padding: 5px 10px;
+    width: 100%;
+    padding-left: 35px;
+    outline: none;
+    background: #FFFFFF;
+    color: #000000;
+    border: 1px solid #C4D1EB;
+    border-radius: 5px;
+    box-shadow: 3px 3px 2px 0px #E2E2E2;
+    transition: .3s ease;
+    cursor: pointer;
+  }
+  
+  .input_file:focus {
+    background: #F2F2F2;
+    border: 1px solid #5A7EC7;
+    border-radius: 10px;
+  }
+  
+  .input_file::file-selector-button {
+    display: none; /* ซ่อนปุ่ม browse ดั้งเดิม */
+  }
+  
+  .input_file::before {
+    content: 'Select file';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #4660DC;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .input_file:hover::before {
+    color: #5A7EC7;
+  }
+  
+  .svg_icon {
+    position: absolute;
+    left: 10px;
+    fill: #4660DC;
+    width: 18px;
+    height: 18px;
   }

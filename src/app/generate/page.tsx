@@ -334,9 +334,9 @@ const Generate = () => {
     };
 
     return (
-        <div>
-            <input type="file" accept=".xlsx, .xls" onChange={handleImport} />
-            <button onClick={generatePDF}>Generate PDF</button>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' ,alignItems: 'center' ,justifyContent:"center",width:"100%",height:'100%' }}>
+           <input className='myButton' type="file" accept=".xlsx, .xls" onChange={handleImport} />
+            <button className='myButton' onClick={generatePDF}>Generate PDF</button> 
         </div>
     );
 };
