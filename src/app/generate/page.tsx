@@ -86,7 +86,7 @@ const Generate = () => {
                 itemDiv.style.boxSizing = 'border-box';
                 itemDiv.style.padding = '10px';
                 itemDiv.style.border = '1px solid black'
-                const shape = item.shape.toLocaleLowerCase().slice(0, -1)
+                const shape = item.shape.toLocaleLowerCase().trim()
                 console.log(shape , shape.length)
             
                 
@@ -168,6 +168,7 @@ const Generate = () => {
                                 </svg>
                             </span>
                             <div style="margin-top: 20px; font-size: 20px; font-weight: 600;">${item.name}</div>
+                            <span style="color: ${'#ffffff'}; font-size: 56px; position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); z-index: 50;">${item.charecter}</span>
                         </div>
                     `
                 }
@@ -181,6 +182,7 @@ const Generate = () => {
                             </svg>
                         </span>
                         <div style="margin-top: 20px; font-size: 20px; font-weight:600">${item.name}</div>
+                         <span style="color: ${'#ffffff'}; font-size: 56px; position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); z-index: 50;">${item.charecter}</span>
                     </div>
                 `;
                 }
@@ -206,17 +208,7 @@ const Generate = () => {
                     </div>
                 `;
                 }
-                if(shape === 'pentago'){
-                    itemDiv.innerHTML = `
-                    <div style="text-align: center;display:flex; flex-direction:column; padding: 0px 30px 0px 30px">
-                        <div style="font-size: 24px; margin-bottom: 5px; align-self:end;">${item.number}</div>
-                        <div id="pentagon"></div>
-                        <div style="margin-top: 20px; font-size: 20px; font-weight:600">${item.name}</div>
-                    </div>
-                `;
-                }
-                
-                if(shape === 'pentago'){
+                if(shape === 'pentagon'){
                     itemDiv.innerHTML = `
                     <div style="text-align: center;display:flex; flex-direction:column; padding: 0px 30px 0px 30px; ">
                         <div style="font-size: 24px; margin-bottom: 5px; align-self:end;">${item.number}</div>
@@ -226,10 +218,11 @@ const Generate = () => {
                             </svg>
                        </span>
                         <div style="margin-top: 20px; font-size: 20px; font-weight:600">${item.name}</div>
+                         <span style="color: ${'#ffffff'}; font-size: 56px; position: absolute; top: 46%; left: 50%; transform: translate(-50%, -50%); z-index: 50;">${item.charecter}</span>
                     </div>
                 `;
                 }
-                if(shape === 'hexago'){
+                if(shape === 'hexagon'){
                     itemDiv.innerHTML = `
                     <div style="text-align: center; display: flex; flex-direction: column; padding: 0px 30px 0px 30px;">
                         <div style="font-size: 24px; margin-bottom: 5px; align-self: end;">${item.number}</div>
@@ -239,11 +232,12 @@ const Generate = () => {
                             </svg>
                         </span>
                         <div style="margin-top: 20px; font-size: 20px; font-weight: 600;">${item.name}</div>
+                         <span style="color: ${'#ffffff'}; font-size: 56px; position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); z-index: 50;">${item.charecter}</span>
                     </div>
 
                 `;
                 }
-                if(shape === 'cros'){
+                if(shape === 'rounded'){
                     itemDiv.innerHTML = `
                     <div style="text-align: center;display:flex; flex-direction:column; padding: 0px 30px 0px 30px">
                         <div style="font-size: 24px; margin-bottom: 5px; align-self:end;">${item.number}</div>
@@ -264,7 +258,7 @@ const Generate = () => {
                     </div>
                 `;
                 }
-                if(shape === 'teardro'){
+                if(shape === 'teardrop'){
                     itemDiv.innerHTML = `
                     <div style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: space-around; padding: 0px 30px;">
                         <div style="font-size: 24px; margin-bottom: 5px; align-self: end;">${item.number}</div>
@@ -280,10 +274,11 @@ const Generate = () => {
                         </svg>
                         </span>
                         <div style="margin-top: 20px; font-size: 20px; font-weight: 600;">${item.name}</div>
+                         <span style="color: ${'#ffffff'}; font-size: 56px; position: absolute; top: 43%; left: 48%; transform: translate(-50%, -50%); z-index: 50;">${item.charecter}</span>
                     </div>
                     `;
                 }
-                if(shape === 'shea'){
+                if(shape === 'shear'){
                   
                     itemDiv.innerHTML = `
                     <div style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: space-around; padding: 0px 30px;">
@@ -292,12 +287,13 @@ const Generate = () => {
                             <polygon points="20,90 110,90 130,10 40,10" fill="${item.color}" />
                         </svg>
                         <div style="margin-top: 20px; font-size: 20px; font-weight: 600;">${item.name}</div>
+                         <span style="color: ${'#ffffff'}; font-size: 56px; position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); z-index: 50;">${item.charecter}</span>
                     </div>
                 `;
                     
                     
                 }
-                if(shape === 'wav'){
+                if(shape === 'wave'){
                     
                         itemDiv.innerHTML = `
                             <div style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: space-around; padding: 0px 30px;">
@@ -315,6 +311,7 @@ const Generate = () => {
                                 </svg>
                                 </span>
                                 <div style="margin-top: 20px; font-size: 20px; font-weight: 600;">${item.name}</div>
+                                 <span style="color: ${'#ffffff'}; font-size: 56px; position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); z-index: 50;">${item.charecter}</span>
                             </div>
                         `;
                     
