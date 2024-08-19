@@ -4,6 +4,7 @@ import { useState } from 'react';
 import * as XLSX from 'xlsx';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { time } from 'console';
 
 interface ExcelRow {
     shape: string;
@@ -161,7 +162,11 @@ const Generate = () => {
                     itemDiv.innerHTML = `
                         <div style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: space-around; padding: 0px 30px;">
                             <div style="font-size: 24px; margin-bottom: 5px; align-self: end;">${item.number}</div>
-                            <div id="heart"></div>
+                            <span style="transform:scale(1.1);">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="150" height="150">
+                                    <path fill=${item.color} d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                                </svg>
+                            </span>
                             <div style="margin-top: 20px; font-size: 20px; font-weight: 600;">${item.name}</div>
                         </div>
                     `
@@ -170,7 +175,12 @@ const Generate = () => {
                     itemDiv.innerHTML = `
                     <div style="text-align: center;display:flex; flex-direction:column; padding: 0px 30px 0px 30px">
                         <div style="font-size: 24px; margin-bottom: 5px; align-self:end;">${item.number}</div>
-                        <div id="star"></div>
+                        <span style="transform:scale(1.3);">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="150" height="150">
+    <path fill=${item.color} d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+</svg>
+
+                        </span>
                         <div style="margin-top: 20px; font-size: 20px; font-weight:600">${item.name}</div>
                     </div>
                 `;
@@ -188,7 +198,7 @@ const Generate = () => {
                             justify-content: center;
                             margin: 5px auto;
                             background-color: ${item.color};
-                            transform: rotate(45deg);
+                            transform: rotate(45deg) scale(0.8);
 
                         ">
                             <span style="color: ${'#ffffff'}; font-size: 56px; transform: rotate(-45deg);">${item.charecter}</span>
@@ -207,51 +217,70 @@ const Generate = () => {
                 `;
                 }
                 
-                if(shape === 'hexago'){
+                if(shape === 'pentago'){
                     itemDiv.innerHTML = `
-                    <div style="text-align: center;display:flex; flex-direction:column; padding: 0px 30px 0px 30px;">
+                    <div style="text-align: center;display:flex; flex-direction:column; padding: 0px 30px 0px 30px; ">
                         <div style="font-size: 24px; margin-bottom: 5px; align-self:end;">${item.number}</div>
-                        <svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <polygon points="50,5 95,37.5 77,95 23,95 5,37.5" fill="green"  />
-                        </svg>
+                       <span>
+                            <svg width="150" height="150" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <polygon points="50,5 95,37.5 77,95 23,95 5,37.5" fill=${item.color}  />
+                            </svg>
+                       </span>
                         <div style="margin-top: 20px; font-size: 20px; font-weight:600">${item.name}</div>
                     </div>
                 `;
                 }
-                if(shape === 'pentago'){
+                if(shape === 'hexago'){
                     itemDiv.innerHTML = `
-                    <div style="text-align: center;display:flex; flex-direction:column; padding: 0px 30px 0px 30px;">
-                        <div style="font-size: 24px; margin-bottom: 5px; align-self:end;">${item.number}</div>
-                        <svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <polygon points="25,5 75,5 95,50 75,95 25,95 5,50" fill=${item.color}  />
-                        </svg>
-                        <div style="margin-top: 20px; font-size: 20px; font-weight:600">${item.name}</div>
+                    <div style="text-align: center; display: flex; flex-direction: column; padding: 0px 30px 0px 30px;">
+                        <div style="font-size: 24px; margin-bottom: 5px; align-self: end;">${item.number}</div>
+                        <span>
+                            <svg width="150" height="150" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <polygon points="50,2.875 89.375,17.5 89.375,75.625 50,96.25 10.625,75.625 10.625,17.5" fill=${item.color} />
+                            </svg>
+                        </span>
+                        <div style="margin-top: 20px; font-size: 20px; font-weight: 600;">${item.name}</div>
                     </div>
+
                 `;
                 }
                 if(shape === 'cros'){
                     itemDiv.innerHTML = `
-        <div style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: space-around; padding: 0px 30px;">
-            <div style="font-size: 24px; margin-bottom: 5px; align-self: end;">${item.number}</div>
-           <svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
-  <!-- Cross shape -->
-  <path d="M75 25 h25 v25 h25 v25 h-25 v25 h-25 v-25 h-25 v-25 h25 z" fill="lime" />
-</svg>
-
-
-            <div style="margin-top: 20px; font-size: 20px; font-weight: 600;">${item.name}</div>
-        </div>
-    `;
+                    <div style="text-align: center;display:flex; flex-direction:column; padding: 0px 30px 0px 30px">
+                        <div style="font-size: 24px; margin-bottom: 5px; align-self:end;">${item.number}</div>
+                        <div style="
+                            width: ${circleSize}px;
+                            height: ${circleSize}px;
+                            border: 2px solid ${item.color};
+                            border-radius: 45px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin: 5px auto;
+                            background-color: ${item.color};
+                        ">
+                            <span style="color: ${'#ffffff'}; font-size: 56px;">${item.charecter}</span>
+                        </div>
+                        <div style="margin-top: 20px; font-size: 20px; font-weight:600">${item.name}</div>
+                    </div>
+                `;
                 }
                 if(shape === 'teardro'){
                     itemDiv.innerHTML = `
         <div style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: space-around; padding: 0px 30px;">
             <div style="font-size: 24px; margin-bottom: 5px; align-self: end;">${item.number}</div>
-            <svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
-  
-  <!-- Teardrop shape -->
-  <path d="M300 25 q75 0 75 75 a75 75 0 1 1 -150 0 q0 -75 75 -75 z" fill="lime" />
-</svg>
+                         
+            <span style=" transform: rotate(-45deg) scale(1.5);">
+                <svg id="sw-js-blob-svg" width="150" height="150" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">                    
+                <defs>                         
+                    <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">                            
+                        <stop id="stop1" stop-color="rgba(248, 117, 55, 1)" offset="0%"></stop>                            
+                        <stop id="stop2" stop-color="rgba(251, 168, 31, 1)" offset="100%"></stop>                        
+                    </linearGradient>                    
+                </defs>                
+                <path fill=${item.color} d="M17.7,-18.5C24.9,-10.4,34.3,-5.2,33.9,-0.3C33.6,4.5,23.5,9,16.3,13.2C9,17.4,4.5,21.2,-1.6,22.8C-7.7,24.4,-15.4,23.8,-20.2,19.6C-25,15.4,-26.8,7.7,-26.1,0.7C-25.4,-6.3,-22.2,-12.7,-17.4,-20.8C-12.7,-29,-6.3,-38.9,-0.6,-38.4C5.2,-37.8,10.4,-26.7,17.7,-18.5Z" width="200%" height="200%" transform="translate(50 50)" stroke-width="0" style="transition: 0.3s;"></path>
+            </svg>
+            </span>
             <div style="margin-top: 20px; font-size: 20px; font-weight: 600;">${item.name}</div>
         </div>
     `;
@@ -275,7 +304,8 @@ const Generate = () => {
                         itemDiv.innerHTML = `
                             <div style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: space-around; padding: 0px 30px;">
                                 <div style="font-size: 24px; margin-bottom: 5px; align-self: end;">${item.number}</div>
-                                <svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <span>
+                                    <svg width="150" height="150" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M10,10 
                                              Q30,30 60,10 
                                              T100,10 
@@ -285,6 +315,7 @@ const Generate = () => {
                                              Z" 
                                           fill="${item.color}" />
                                 </svg>
+                                </span>
                                 <div style="margin-top: 20px; font-size: 20px; font-weight: 600;">${item.name}</div>
                             </div>
                         `;
