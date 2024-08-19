@@ -135,27 +135,27 @@ const Generate = () => {
                 if(shape === 'triangle'){
                     itemDiv.innerHTML = `
                    <div style="text-align: center; display: flex; flex-direction: column; padding: 0px 30px;">
-    <div style="font-size: 20px;font-weight:600; margin-bottom: 5px; align-self: end;">${item.number}</div>
-    <div style="
-        width: 0;
-        height: 0;
-        border-left: ${circleSize / 2}px solid transparent;
-        border-right: ${circleSize / 2}px solid transparent;
-        border-bottom: ${circleSize}px solid ${item.color};
-        position: relative;
-        margin: 5px auto;
-    ">
-        <span style="
-            color: #ffffff;
-            font-size: 46px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, 70px); /* ปรับให้ตัวอักษรอยู่กึ่งกลางจริงๆ */
-        ">${item.charecter}</span>
-    </div>
-    <div style="margin-top: 20px; font-size: 20px; font-weight: 600;">${item.name}</div>
-</div>
+                        <div style="font-size: 20px;font-weight:600; margin-bottom: 5px; align-self: end;">${item.number}</div>
+                        <div style="
+                            width: 0;
+                            height: 0;
+                            border-left: ${circleSize / 2}px solid transparent;
+                            border-right: ${circleSize / 2}px solid transparent;
+                            border-bottom: ${circleSize}px solid ${item.color};
+                            position: relative;
+                            margin: 5px auto;
+                        ">
+                        <span style="
+                            color: #ffffff;
+                            font-size: 46px;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, 70px); /* ปรับให้ตัวอักษรอยู่กึ่งกลางจริงๆ */
+                        ">${item.charecter}</span>
+                        </div>
+                        <div style="margin-top: 20px; font-size: 20px; font-weight: 600;">${item.name}</div>
+                    </div>
                     `;
                 }
                 if(shape === 'heart'){
@@ -177,9 +177,8 @@ const Generate = () => {
                         <div style="font-size: 24px; margin-bottom: 5px; align-self:end;">${item.number}</div>
                         <span style="transform:scale(1.3);">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="150" height="150">
-    <path fill=${item.color} d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-</svg>
-
+                                <path fill=${item.color} d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
                         </span>
                         <div style="margin-top: 20px; font-size: 20px; font-weight:600">${item.name}</div>
                     </div>
@@ -267,23 +266,22 @@ const Generate = () => {
                 }
                 if(shape === 'teardro'){
                     itemDiv.innerHTML = `
-        <div style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: space-around; padding: 0px 30px;">
-            <div style="font-size: 24px; margin-bottom: 5px; align-self: end;">${item.number}</div>
-                         
-            <span style=" transform: rotate(-45deg) scale(1.5);">
-                <svg id="sw-js-blob-svg" width="150" height="150" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">                    
-                <defs>                         
-                    <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">                            
-                        <stop id="stop1" stop-color="rgba(248, 117, 55, 1)" offset="0%"></stop>                            
-                        <stop id="stop2" stop-color="rgba(251, 168, 31, 1)" offset="100%"></stop>                        
-                    </linearGradient>                    
-                </defs>                
-                <path fill=${item.color} d="M17.7,-18.5C24.9,-10.4,34.3,-5.2,33.9,-0.3C33.6,4.5,23.5,9,16.3,13.2C9,17.4,4.5,21.2,-1.6,22.8C-7.7,24.4,-15.4,23.8,-20.2,19.6C-25,15.4,-26.8,7.7,-26.1,0.7C-25.4,-6.3,-22.2,-12.7,-17.4,-20.8C-12.7,-29,-6.3,-38.9,-0.6,-38.4C5.2,-37.8,10.4,-26.7,17.7,-18.5Z" width="200%" height="200%" transform="translate(50 50)" stroke-width="0" style="transition: 0.3s;"></path>
-            </svg>
-            </span>
-            <div style="margin-top: 20px; font-size: 20px; font-weight: 600;">${item.name}</div>
-        </div>
-    `;
+                    <div style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: space-around; padding: 0px 30px;">
+                        <div style="font-size: 24px; margin-bottom: 5px; align-self: end;">${item.number}</div>
+                        <span style=" transform: rotate(-45deg) scale(1.5);">
+                            <svg id="sw-js-blob-svg" width="150" height="150" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">                    
+                            <defs>                         
+                                <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">                            
+                                    <stop id="stop1" stop-color="rgba(248, 117, 55, 1)" offset="0%"></stop>                            
+                                    <stop id="stop2" stop-color="rgba(251, 168, 31, 1)" offset="100%"></stop>                        
+                                </linearGradient>                    
+                            </defs>                
+                            <path fill=${item.color} d="M17.7,-18.5C24.9,-10.4,34.3,-5.2,33.9,-0.3C33.6,4.5,23.5,9,16.3,13.2C9,17.4,4.5,21.2,-1.6,22.8C-7.7,24.4,-15.4,23.8,-20.2,19.6C-25,15.4,-26.8,7.7,-26.1,0.7C-25.4,-6.3,-22.2,-12.7,-17.4,-20.8C-12.7,-29,-6.3,-38.9,-0.6,-38.4C5.2,-37.8,10.4,-26.7,17.7,-18.5Z" width="200%" height="200%" transform="translate(50 50)" stroke-width="0" style="transition: 0.3s;"></path>
+                        </svg>
+                        </span>
+                        <div style="margin-top: 20px; font-size: 20px; font-weight: 600;">${item.name}</div>
+                    </div>
+                    `;
                 }
                 if(shape === 'shea'){
                   
