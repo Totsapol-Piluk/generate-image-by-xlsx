@@ -130,6 +130,29 @@ const Generate = () => {
                     </div>
                 `;
                 }
+                if(shape === 'triangle'){
+                    itemDiv.innerHTML = `
+                    <div style="text-align: center;display:flex; flex-direction:column; padding: 0px 30px 0px 30px">
+                        <div style="font-size: 24px; margin-bottom: 5px; align-self:end;">${item.number}</div>
+                        <div style="
+                                width: 0;
+                                height: 0;
+                                border-left: ${circleSize / 2}px solid transparent;
+                                border-right: ${circleSize / 2}px solid transparent;
+                                border-bottom: ${circleSize}px solid ${item.color};
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin: 5px auto;
+                                position: relative;
+                            ">
+                            <span style="color: ${'#ffffff'}; font-size: 36px; position: absolute; top: 100%; left: 50%; transform: translate(-50%, -50%);">${item.charecter}</span>
+                        </div>
+                        <div style="margin-top: 20px; font-size: 20px; font-weight:600">${item.name}</div>
+                    </div>
+
+                    `;
+                }
                
                 container.appendChild(itemDiv);
             });
