@@ -85,9 +85,12 @@ const Generate = () => {
                 itemDiv.style.boxSizing = 'border-box';
                 itemDiv.style.padding = '10px';
                 itemDiv.style.border = '1px solid black'
-               
-    
-                itemDiv.innerHTML = `
+                const shape = item.shape.toLocaleLowerCase().slice(0, -1)
+            
+                
+
+                if(shape === 'circle'){
+                    itemDiv.innerHTML = `
                     <div style="text-align: center;display:flex; flex-direction:column; padding: 0px 30px 0px 30px">
                         <div style="font-size: 24px; margin-bottom: 5px; align-self:end;">${item.number}</div>
                         <div style="
@@ -106,7 +109,28 @@ const Generate = () => {
                         <div style="margin-top: 20px; font-size: 20px; font-weight:600">${item.name}</div>
                     </div>
                 `;
-    
+                }
+                if(shape === 'square'){
+                    itemDiv.innerHTML = `
+                    <div style="text-align: center;display:flex; flex-direction:column; padding: 0px 30px 0px 30px">
+                        <div style="font-size: 24px; margin-bottom: 5px; align-self:end;">${item.number}</div>
+                        <div style="
+                            width: ${circleSize}px;
+                            height: ${circleSize}px;
+                            border: 2px solid ${item.color};
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin: 5px auto;
+                            background-color: ${item.color};
+                        ">
+                            <span style="color: ${'#ffffff'}; font-size: 56px;">${item.charecter}</span>
+                        </div>
+                        <div style="margin-top: 20px; font-size: 20px; font-weight:600">${item.name}</div>
+                    </div>
+                `;
+                }
+               
                 container.appendChild(itemDiv);
             });
     
