@@ -50,55 +50,71 @@ const Generate = () => {
     };
 
     const generatePDF = async () => {
-        const pdf = new jsPDF();
+        const pdf = new jsPDF({
+            orientation: 'portrait',
+            unit: 'mm',
+            format: 'a4'
+        });
+    
         const itemsPerPage = 8;
-        const itemsPerRow = 4;
-
-        for (let i = 0; i < data.length; i += itemsPerPage) {
-            if (i > 0) pdf.addPage();
-
-            const pageData = data.slice(i, i + itemsPerPage);
+        const pageWidth = 210;
+        const pageHeight = 297;
+        const itemWidth = pageWidth / 2;
+        const itemHeight = pageHeight / 4;
+        const circleSize = 150; // ขนาดวงกลม (หน่วยเป็น px)
+    
+        for (let pageStart = 0; pageStart < data.length; pageStart += itemsPerPage) {
+            if (pageStart > 0) {
+                pdf.addPage();
+            }
+    
+            const pageData = data.slice(pageStart, pageStart + itemsPerPage);
             const container = document.createElement('div');
-            container.style.display = 'flex';
-            container.style.flexWrap = 'wrap';
-            container.style.width = '800px';
-
-            for (const item of pageData) {
+            container.style.width = `${pageWidth}mm`;
+            container.style.height = `${pageHeight}mm`;
+            container.style.position = 'relative';
+    
+            pageData.forEach((item, index) => {
                 const itemDiv = document.createElement('div');
-                itemDiv.style.width = '50%';
-                itemDiv.style.padding = '10px';
+                itemDiv.style.position = 'absolute';
+                itemDiv.style.width = `${itemWidth}mm`;
+                itemDiv.style.height = `${itemHeight}mm`;
+                itemDiv.style.left = `${(index % 2) * itemWidth}mm`;
+                itemDiv.style.top = `${Math.floor(index / 2) * itemHeight}mm`;
                 itemDiv.style.boxSizing = 'border-box';
-
+                itemDiv.style.padding = '10px';
+                itemDiv.style.border = '1px solid red';
+    
                 itemDiv.innerHTML = `
                     <div style="text-align: center;">
-                        <div style="font-size: 24px;">${item.number}</div>
+                        <div style="font-size: 24px; margin-bottom: 5px;">${item.number}</div>
                         <div style="
-                            width: 100px;
-                            height: 100px;
+                            width: ${circleSize}px;
+                            height: ${circleSize}px;
                             border-radius: 50%;
-                            background-color: ${item.color};
+                            border: 2px solid ${item.color};
                             display: flex;
                             align-items: center;
                             justify-content: center;
-                            margin: 10px auto;
+                            margin: 5px auto;
                             border:2px solid red;
                         ">
-                            <span style="color: white; font-size: 48px;">${item.charecter}</span>
+                            <span style="color: ${item.color}; font-size: 36px;">${item.charecter}</span>
                         </div>
-                        <div>${item.name}</div>
+                        <div style="margin-top: 5px; font-size: 14px;">${item.name}</div>
                     </div>
                 `;
-
+    
                 container.appendChild(itemDiv);
-            }
-
+            });
+    
             document.body.appendChild(container);
-            const canvas = await html2canvas(container);
+            const canvas = await html2canvas(container, { scale: 2 });
             const imgData = canvas.toDataURL('image/png');
-            pdf.addImage(imgData, 'PNG', 0, 0, 210, 297);
+            pdf.addImage(imgData, 'PNG', 0, 0, pageWidth, pageHeight);
             document.body.removeChild(container);
         }
-
+    
         pdf.save('generated.pdf');
     };
 
