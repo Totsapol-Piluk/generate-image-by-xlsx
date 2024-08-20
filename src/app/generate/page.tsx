@@ -186,7 +186,7 @@ const Generate = () => {
                     </div>
                 `;
                 }
-                if(shape === 'daimond'){
+                if(shape === 'diamond'){
                     itemDiv.innerHTML = `
                     <div style="text-align: center;display:flex; flex-direction:column; padding: 0px 30px 0px 30px">
                         <div style="font-size: 24px; margin-bottom: 5px; align-self:end;">${item.number}</div>
