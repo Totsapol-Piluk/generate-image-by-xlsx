@@ -154,7 +154,7 @@ const Generate = () => {
                             transform: translate(-50%, 70px); /* ปรับให้ตัวอักษรอยู่กึ่งกลางจริงๆ */
                         ">${item.charecter}</span>
                         </div>
-                        <div style="margin-top: 20px; font-size: 20px; font-weight: 600;">${item.name}</div>
+                        <div style="margin-top: 20px; font-size: 20px; font-weight: 400;">${item.name}</div>
                     </div>
                     `;
                 }
